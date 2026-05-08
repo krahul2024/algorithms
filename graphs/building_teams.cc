@@ -8,8 +8,7 @@ int main() {
 
     std::vector<std::vector<int>> G(n+1);
     std::vector<int> vis (n+1, false);
-    std::vector<int> team_nos (n+1, -1);
-    std::vector<int> parent (n+1, -1);
+    std::vector<int> colors (n+1, -1);
 
     for (int i = 0; i < m; i++) {
         int x, y;
@@ -19,40 +18,36 @@ int main() {
         G[y].push_back (x);
     }
 
-    bool is_cyclic = false;
+    bool is_bipartite = true;
+
     for (int i = 1; i <= n; i++) {
         if (!vis[i]) {
             std::queue<int> q;
             q.push (i);
             vis[i] = true;
-            parent[i] = -1;
-            team_nos[i] = 1;
+            colors[i] = 0;
 
             while (!q.empty()) {
                 auto x = q.front();
                 q.pop();
 
                 for (const auto& ch: G[x]) {
-                    if (vis[ch] && parent[ch] == parent[x]) {
-                        is_cyclic = true;
-                        break;
-                    }
                     if (!vis[ch]) {
-                        parent[ch] = x;
+                        colors[ch] = colors[x] ^ 1;
                         vis[ch] = true;
                         q.push (ch);
-
-                        team_nos[ch] = team_nos[x] == 1 ? 2: 1;
+                    } else if (vis[ch] && colors[ch] == colors[x]) {
+                        is_bipartite = false;
+                        break;
                     }
-
                 }
             }
         }
     }
 
-    if (!is_cyclic) {
+    if (is_bipartite) {
         for (int i = 1; i <= n; i++)
-            std::cout << team_nos[i] << ' ';
+            std::cout << colors[i]+1 << ' ';
 
         std::cout << '\n';
     } else {
