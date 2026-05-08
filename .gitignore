@@ -1,0 +1,132 @@
+# =========================================
+# Vim / Neovim
+# =========================================
+
+# Swap files
+*.swp
+*.swo
+*.swn
+
+# Backup files
+*~
+*.bak
+
+# Session files
+Session.vim
+
+# NetRW
+.netrwhist
+
+# Tags
+tags
+
+# Coc.nvim
+.coc/
+node_modules/
+
+# Neovim cache/state
+.nvim/
+.cache/
+tmp/
+
+# LSP / diagnostics
+.lsp/
+
+# =========================================
+# C / C++
+# =========================================
+
+# Compiled objects
+*.o
+*.obj
+*.so
+*.a
+*.out
+*.exe
+*.dll
+*.dylib
+
+# Build directories
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+
+# Make
+Makefile
+makedep*
+
+# Debuggers
+*.dSYM/
+*.gdb_history
+
+# =========================================
+# Go
+# =========================================
+
+# Binaries
+bin/
+*.test
+
+# Coverage
+coverage.out
+
+# Vendor (optional)
+# vendor/
+
+# =========================================
+# Rust
+# =========================================
+
+target/
+
+# Usually keep Cargo.lock for binaries/apps
+# Ignore for libraries if desired
+# Cargo.lock
+
+# =========================================
+# Java
+# =========================================
+
+# Compiled classes
+*.class
+
+# JAR/WAR
+*.jar
+*.war
+*.ear
+
+# Maven
+target/
+
+# Gradle
+.gradle/
+build/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VSCode
+.vscode/
+
+# =========================================
+# General
+# =========================================
+
+# Logs
+*.log
+
+# Temp files
+tmp/
+temp/
+
+# OS files
+.DS_Store
+Thumbs.db
